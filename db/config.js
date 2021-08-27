@@ -2,8 +2,6 @@ const mongoose = require('mongoose');
 
 const dbConnection = async () => {
 
-    try {
-
         await mongoose.connect(
             process.env.DB_CNN,
             {
@@ -11,16 +9,16 @@ const dbConnection = async () => {
                 useUnifiedTopology: true,
                 useCreateIndex: true
             }
-        );
+        ).then(
 
-        console.log('DB online');
-        
-    } catch (err) {
-        
-        console.log(err);
-        throw new Error('Error a la hora de inicializar la DB');
-        
-    }
+            console.log('DB online')
+
+        ).catch( err => {
+
+            console.log(err);
+            throw new Error('Error a la hora de inicializar la DB');
+
+        } )
 
 };
 
