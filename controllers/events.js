@@ -51,7 +51,7 @@ const setEvento = async (req = request, resp = response) => {
 
         if ( !evento ) {
 
-            resp.status(404).json({
+            return resp.status(404).json({
                 ok: false,
                 msg: 'No hay algun evento por ese id'
             })
@@ -60,7 +60,7 @@ const setEvento = async (req = request, resp = response) => {
 
         if ( evento.user.toString() !== req.uid ) {
 
-            resp.status(401).json({
+            return resp.status(401).json({
                 ok: false,
                 msg: 'No se puede editar eventos de otras personas'
             })
