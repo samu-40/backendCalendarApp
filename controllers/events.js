@@ -102,7 +102,7 @@ const deletedEvento = async (req = request, resp = response) => {
 
         if ( !evento ) {
 
-            resp.status(404).json({
+            return resp.status(404).json({
                 ok: false,
                 msg: 'No existe un evento con este id'
             })
@@ -111,7 +111,7 @@ const deletedEvento = async (req = request, resp = response) => {
 
         if ( evento.user.toString() !== uid ) {
 
-            resp.status(401).json({
+            return resp.status(401).json({
                 ok: false,
                 msg: 'No se puede borrar eventos de otras personas'
             })
