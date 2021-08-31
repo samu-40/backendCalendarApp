@@ -136,11 +136,6 @@ const deletedEvento = async (req = request, resp = response) => {
 
     }
 
-    resp.json({
-        ok: true,
-        msg: 'deletedEvento'
-    })
-
 }
 
 module.exports = {
